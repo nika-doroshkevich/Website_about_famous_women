@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>{{title}}</title>
-	{% load static %}
+    {% load static %}
     {% load women_tags %}
     <link type="text/css" href="{% static 'women/css/styles.css' %}" rel="stylesheet"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -43,7 +43,15 @@
                             <li><a href="{% url 'home' %}">All categories</a></li>
                             {% endif %}
 
-                            {% show_categories category_selected=category_selected %}
+                            {% for c in categories %}
+                            {% if c.women__count > 0 %}
+                            {% if c.pk == category_selected %}
+                            <li class="selected">{{c.name}}</li>
+                            {% else %}
+                            <li><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li>
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
 
                         </ul>
                     </td>
