@@ -1,4 +1,4 @@
-# Website_about_famous_women :relaxed:
+# Website about famous women :relaxed:
 
 ### Stack of technologies :computer:
 
